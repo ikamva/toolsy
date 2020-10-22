@@ -212,6 +212,36 @@
           }
         }
       }
+    },
+    "tool-overlay": {
+      "projectType": "library",
+      "root": "libs/tool-overlay",
+      "sourceRoot": "libs/tool-overlay/src",
+      "prefix": "tly",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/tool-overlay/tsconfig.lib.json",
+              "libs/tool-overlay/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/tool-overlay/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/tool-overlay/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

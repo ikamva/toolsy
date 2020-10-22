@@ -41,6 +41,9 @@
     "tool-ui-e2e": {
       "tags": [],
       "implicitDependencies": ["tool-ui"]
+    },
+    "tool-overlay": {
+      "tags": []
     }
   }
 }

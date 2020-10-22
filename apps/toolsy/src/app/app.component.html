@@ -134,22 +134,38 @@
         class="w-1/4"
         [imageUrl]="'/assets/images/tools/blobmaker.png'"
         description="Makes blob shapes"
+        (viewHandle)="open(tpl)"
       ></tly-tool-card>
       <tly-tool-card
         class="w-1/4 ml-5"
         [imageUrl]="'/assets/images/tools/blobmaker.png'"
         description="Makes blob shapes"
+        (viewHandle)="open(tpl)"
       ></tly-tool-card>
       <tly-tool-card
         class="w-1/4 ml-5"
         [imageUrl]="'/assets/images/tools/blobmaker.png'"
         description="Makes blob shapes"
+        (viewHandle)="open(tpl)"
       ></tly-tool-card>
       <tly-tool-card
         class="w-1/4 ml-5"
         imageUrl="/assets/images/tools/blobmaker.png"
         description="Makes blob shapes"
+        (viewHandle)="open(tpl)"
       ></tly-tool-card>
     </div>
   </section>
 </div>
+
+<ng-template #tpl let-close="close">
+  <!-- <ndx-notification-modal
+      [notifications]="notifications"
+      (update)="onUpdate($event)"
+      (closeDialog)="close($event)"
+    >
+    </ndx-notification-modal> -->
+  <div class="w-full h-full bg-white">
+    <p>Test</p>
+  </div>
+</ng-template>
