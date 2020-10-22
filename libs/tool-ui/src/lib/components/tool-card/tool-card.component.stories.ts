@@ -1,16 +1,17 @@
 
+import { ToolUiModule } from '../../tool-ui.module';
 import { ToolCardComponent } from './tool-card.component';
 
 export default {
-  title: 'ToolCardComponent'
+  title: 'Tools UI'
 }
 
 export const primary = () => ({
   moduleMetadata: {
-    imports: []
+    imports: [ToolUiModule]
   },
   component: ToolCardComponent,
-  template: `<div style="padding: 2%"> <tly-tool-card></tly-tool-card></div>`,
+  template: `<div style="padding: 2%"><tly-tool-card></tly-tool-card></div>`,
   props: {
   }
 })

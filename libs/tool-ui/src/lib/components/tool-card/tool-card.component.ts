@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'tly-tool-card',
@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolCardComponent implements OnInit {
 
+  @Input() imageUrl: string;
+  @Input() description: string;
+  @Input() link: string;
+
+  @Output() viewHandle = new EventEmitter<boolean>();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  viewClicked() {
+    this.viewHandle.emit(true);
   }
 
 }

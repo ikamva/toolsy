@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'toolsy-workspace-root',
+  selector: 'toolsy-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })

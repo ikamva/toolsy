@@ -1,5 +1,5 @@
 {
-  "npmScope": "toolsy-workspace",
+  "npmScope": "toolsy",
   "affected": {
     "defaultBase": "master"
   },
@@ -33,18 +33,14 @@
     },
     "toolsy-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "toolsy"
-      ]
+      "implicitDependencies": ["toolsy"]
     },
     "tool-ui": {
       "tags": []
     },
     "tool-ui-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "tool-ui"
-      ]
+      "implicitDependencies": ["tool-ui"]
     }
   }
 }
