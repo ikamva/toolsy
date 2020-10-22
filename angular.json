@@ -21,13 +21,8 @@
             "polyfills": "apps/toolsy/src/polyfills.ts",
             "tsConfig": "apps/toolsy/tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "apps/toolsy/src/favicon.ico",
-              "apps/toolsy/src/assets"
-            ],
-            "styles": [
-              "apps/toolsy/src/styles.scss"
-            ],
+            "assets": ["apps/toolsy/src/favicon.ico", "apps/toolsy/src/assets"],
+            "styles": ["apps/toolsy/src/styles.scss"],
             "scripts": [],
             "customWebpackConfig": {
               "path": "./webpack.config.js"
@@ -91,10 +86,7 @@
               "apps/toolsy/tsconfig.app.json",
               "apps/toolsy/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/toolsy/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!apps/toolsy/**/*"]
           }
         },
         "test": {
@@ -127,14 +119,39 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/toolsy-e2e/tsconfig.e2e.json"
-            ],
-            "exclude": [
-              "**/node_modules/**",
-              "!apps/toolsy-e2e/**/*"
-            ]
+            "tsConfig": ["apps/toolsy-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/toolsy-e2e/**/*"]
           }
+        }
+      }
+    },
+    "tool-ui": {
+      "projectType": "library",
+      "root": "libs/tool-ui",
+      "sourceRoot": "libs/tool-ui/src",
+      "prefix": "tly",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/tool-ui/tsconfig.lib.json",
+              "libs/tool-ui/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/tool-ui/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/tool-ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
         }
       }
     }

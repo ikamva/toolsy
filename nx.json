@@ -28,6 +28,9 @@
     "toolsy-e2e": {
       "tags": [],
       "implicitDependencies": ["toolsy"]
+    },
+    "tool-ui": {
+      "tags": []
     }
   }
 }
