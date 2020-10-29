@@ -1,1 +1,44 @@
-ui
+<div class="p-8">
+  <div class="flex">
+    <div class="mr-4">
+      <img class="h-16 w-16" [src]="tool.media.logo" alt="" />
+    </div>
+    <div class="flex flex-col justify-center">
+      <h3 class="mb-0 font-bold">{{ tool.name }}</h3>
+      <p class="mt-0 text-gray-600">{{ tool.description.line }}</p>
+    </div>
+  </div>
+  <div class="flex mt-8">
+    <div class="w-4/6 mr-10 shadow rounded-lg bg-white p-6">
+      <div>
+        <img class="w-full h-full" [src]="tool.media.snapshot[index]" alt="" />
+      </div>
+      <div class="flex my-5">
+        <img
+          class="w-16 h-16 mr-4 shadow-xs rounded cursor-pointer"
+          *ngFor="let snap of tool.media.snapshot"
+          [src]="snap"
+          alt=""
+        />
+      </div>
+      <hr />
+      <div class="mt-8">
+        <p class="text-gray-600">{{ tool.description.full }}</p>
+      </div>
+    </div>
+    <div class="w-2/6">
+      <div>
+        <div
+          class="shadow rounded bg-white px-6 py-3 cursor-pointer"
+          (click)="goToTool(tool.web.url)"
+        >
+          <p class="font-medium">{{ tool.web.website_name }}</p>
+          <p class="text-gray-500">{{ tool.web.url }}</p>
+        </div>
+      </div>
+      <div class="mt-8">
+        <h4>Related</h4>
+      </div>
+    </div>
+  </div>
+</div>

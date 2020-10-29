@@ -8,3 +8,12 @@
 
 // Angular CDK
 @import '@angular/cdk/overlay-prebuilt.css';
+
+tly-overlay {
+  width: 100%;
+  height: 100%;
+}
+
+// cdk-global-overlay-wrapper {
+//   overflow-y: scroll !important;
+// }

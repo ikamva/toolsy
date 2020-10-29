@@ -86,7 +86,7 @@
     </div>
   </div>
   <section class="flex h-full">
-    <div class="flex-col border-r pt-5 pl-5 w-1/5 h-auto">
+    <div class="flex-col border-r pt-3 pl-3 pr-5 w-1/5 h-auto">
       <div class="overflow-auto h-full">
         <div class="flex-col px-3">
           <div class="mb-5">
@@ -129,7 +129,7 @@
         </div>
       </div>
     </div>
-    <div class="p-6 w-full flex">
+    <div class="p-12 w-full flex">
       <tly-tool-card
         class="w-1/4"
         [imageUrl]="'/assets/images/tools/blobmaker.png'"
@@ -159,13 +159,5 @@
 </div>
 
 <ng-template #tpl let-close="close">
-  <!-- <ndx-notification-modal
-      [notifications]="notifications"
-      (update)="onUpdate($event)"
-      (closeDialog)="close($event)"
-    >
-    </ndx-notification-modal> -->
-  <div class="w-full h-full bg-white">
-    <p>Test</p>
-  </div>
+  <tly-tool-dialog-ui [tool]="tool"></tly-tool-dialog-ui>
 </ng-template>

@@ -6,7 +6,7 @@ import { ToolDialogUiComponent } from './components/tool-dialog-ui/tool-dialog-u
 @NgModule({
   imports: [CommonModule],
   declarations: [ToolCardComponent, ToolDialogUiComponent],
-  exports: [ToolCardComponent],
+  exports: [ToolCardComponent, ToolDialogUiComponent],
 })
 export class ToolUiModule {
 }

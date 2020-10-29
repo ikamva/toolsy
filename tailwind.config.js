@@ -3,6 +3,7 @@ module.exports = {
     extend: {
       colors: {
         backdrop: '#0C121B9C',
+        dialog: '#F2F2F2',
       },
     },
   },

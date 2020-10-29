@@ -17,7 +17,8 @@
     "baseUrl": ".",
     "paths": {
       "@toolsy/tool-ui": ["libs/tool-ui/src/index.ts"],
-      "@toolsy/tool-overlay": ["libs/tool-overlay/src/index.ts"]
+      "@toolsy/tool-overlay": ["libs/tool-overlay/src/index.ts"],
+      "@toolsy/models": ["libs/models/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

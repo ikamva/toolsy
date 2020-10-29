@@ -1,6 +1,5 @@
-import { Component, OnInit, TemplateRef, Type } from '@angular/core';
-import { ToolsyOverlayService } from '@toolsy/tool-overlay';
-
+import { Component, Input, OnInit } from '@angular/core';
+import { ITool } from '@toolsy/models';
 @Component({
   selector: 'tly-tool-dialog-ui',
   templateUrl: './tool-dialog-ui.component.html',
@@ -8,12 +7,16 @@ import { ToolsyOverlayService } from '@toolsy/tool-overlay';
 })
 export class ToolDialogUiComponent implements OnInit {
 
+  index = 0;
 
-  constructor(private toolsyOverlay: ToolsyOverlayService) { }
+  @Input() tool: ITool;
 
-
-
+  constructor() { }
   ngOnInit() {
 
+  }
+
+  goToTool(url: string) {
+    window.open(url, '_blank');
   }
 }

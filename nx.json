@@ -44,6 +44,9 @@
     },
     "tool-overlay": {
       "tags": []
+    },
+    "models": {
+      "tags": []
     }
   }
 }
