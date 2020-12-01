@@ -1,6 +1,9 @@
 import { Component, TemplateRef, ViewEncapsulation } from '@angular/core';
-import { ITool } from '@toolsy/models';
+import { ICategory, ITool } from '@toolsy/models';
 import { ToolsyOverlayService } from '@toolsy/tool-overlay';
+import { Observable } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'toolsy-root',
@@ -10,25 +13,20 @@ import { ToolsyOverlayService } from '@toolsy/tool-overlay';
 export class AppComponent {
 
   tool: ITool;
+  tools$: Observable<ITool[]>;
+  categories$: Observable<ICategory[]>;
+  categoryForm: FormGroup;
 
-  constructor(private toolsyOverlay: ToolsyOverlayService) {
-    this.tool = {
-      name: 'Blob Maker',
-      web: {
-        url: 'https://www.blobmaker.app',
-        website_name: 'www.blobmaker.app'
-      },
-      tags: ['blob', 'design'],
-      media: {
-        logo: 'assets/images/tools/blobmaker.png',
-        snapshot: ['assets/images/tools/blobmaker_snap.png', 'assets/images/tools/blobmaker_snap.png'],
-        videos: []
-      },
-      description: {
-        line: 'Make organic SVG shapes for your next design',
-        full: 'Blobmaker is a free generative design tool made with 💕 by z creative labs, to help you quickly create random, unique, and organic-looking SVG shapes.'
-      }
-    }
+  constructor(private toolsyOverlay: ToolsyOverlayService, private firestore: AngularFirestore, private fb: FormBuilder) {
+    this.tools$ = firestore.collection<ITool>('tools').valueChanges();
+    this.categories$ = firestore.collection<ICategory>('categories').valueChanges();
+    this.categoryForm = fb.group({
+      category: [[]]
+    })
+  }
+
+  get category() {
+    return this.categoryForm.get('category')
   }
 
   open(content: TemplateRef<any>) {
@@ -52,5 +50,13 @@ export class AppComponent {
     });
 
     ref.afterClosed$.subscribe(res => { });
+  }
+
+  selected(tool: ITool) {
+    this.tool = tool;
+  }
+
+  categorySelected(category: ICategory) {
+    console.log(category)
   }
 }

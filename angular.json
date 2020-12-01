@@ -21,8 +21,13 @@
             "polyfills": "apps/toolsy/src/polyfills.ts",
             "tsConfig": "apps/toolsy/tsconfig.app.json",
             "aot": true,
-            "assets": ["apps/toolsy/src/favicon.ico", "apps/toolsy/src/assets"],
-            "styles": ["apps/toolsy/src/styles.scss"],
+            "assets": [
+              "apps/toolsy/src/favicon.ico",
+              "apps/toolsy/src/assets"
+            ],
+            "styles": [
+              "apps/toolsy/src/styles.scss"
+            ],
             "scripts": [],
             "customWebpackConfig": {
               "path": "./webpack.config.js"
@@ -86,7 +91,10 @@
               "apps/toolsy/tsconfig.app.json",
               "apps/toolsy/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/toolsy/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/toolsy/**/*"
+            ]
           }
         },
         "test": {
@@ -95,6 +103,10 @@
             "jestConfig": "apps/toolsy/jest.config.js",
             "passWithNoTests": true
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     },
@@ -119,8 +131,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/toolsy-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/toolsy-e2e/**/*"]
+            "tsConfig": [
+              "apps/toolsy-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/toolsy-e2e/**/*"
+            ]
           }
         }
       }
@@ -139,7 +156,10 @@
               "libs/tool-ui/tsconfig.spec.json",
               "libs/tool-ui/.storybook/tsconfig.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/tool-ui/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/tool-ui/**/*"
+            ]
           }
         },
         "test": {
@@ -207,8 +227,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/tool-ui-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/tool-ui-e2e/**/*"]
+            "tsConfig": [
+              "apps/tool-ui-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/tool-ui-e2e/**/*"
+            ]
           }
         }
       }
@@ -226,7 +251,10 @@
               "libs/tool-overlay/tsconfig.lib.json",
               "libs/tool-overlay/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/tool-overlay/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/tool-overlay/**/*"
+            ]
           }
         },
         "test": {
@@ -256,7 +284,10 @@
               "libs/models/tsconfig.lib.json",
               "libs/models/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/models/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/models/**/*"
+            ]
           }
         },
         "test": {

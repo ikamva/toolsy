@@ -60,7 +60,7 @@
       >
         Find the tools &amp; services you need
       </h2>
-      <form class="w-full">
+      <div class="w-full">
         <div class="relative w-full font">
           <input
             placeholder="Search for a tool or service"
@@ -82,7 +82,7 @@
             </svg>
           </div>
         </div>
-      </form>
+      </div>
     </div>
   </div>
   <section class="flex h-full">
@@ -94,16 +94,19 @@
               CATEGORIES
             </div>
 
-            <form class="w-full max-w-lg">
+            <form [formGroup]="categoryForm" class="w-full max-w-lg">
               <div class="w-full">
                 <div class="relative">
                   <select
                     class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                     id="grid-state"
+                    formControlName="category"
                   >
-                    <option>Design</option>
-                    <option>Software Development</option>
-                    <option>Cloud</option>
+                    <option
+                      *ngFor="let category of categories$ | async"
+                      [value]="[category.name, category.tags]"
+                      >{{ category?.name }}</option
+                    >
                   </select>
                   <div
                     class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
@@ -122,37 +125,31 @@
               </div>
             </form>
           </div>
-
-          <div class="items-center py-4 mb-1 text-sm font-medium text-gray-700">
-            TAGS
+          <div>
+            <div
+              class="items-center py-4 mb-1 text-sm font-medium text-gray-700"
+            >
+              TAGS
+            </div>
+            <div>
+              <div
+                class="py-1 px-2 inline-block rounded bg-gray-400 cursor-pointer"
+              >
+                {{ category.value }}
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div class="p-12 w-full flex">
       <tly-tool-card
+        *ngFor="let tool of tools$ | async"
         class="w-1/4"
-        [imageUrl]="'/assets/images/tools/blobmaker.png'"
-        description="Makes blob shapes"
+        [imageUrl]="tool.media.logo"
+        [description]="tool.description.line"
         (viewHandle)="open(tpl)"
-      ></tly-tool-card>
-      <tly-tool-card
-        class="w-1/4 ml-5"
-        [imageUrl]="'/assets/images/tools/blobmaker.png'"
-        description="Makes blob shapes"
-        (viewHandle)="open(tpl)"
-      ></tly-tool-card>
-      <tly-tool-card
-        class="w-1/4 ml-5"
-        [imageUrl]="'/assets/images/tools/blobmaker.png'"
-        description="Makes blob shapes"
-        (viewHandle)="open(tpl)"
-      ></tly-tool-card>
-      <tly-tool-card
-        class="w-1/4 ml-5"
-        imageUrl="/assets/images/tools/blobmaker.png"
-        description="Makes blob shapes"
-        (viewHandle)="open(tpl)"
+        (click)="selected(tool)"
       ></tly-tool-card>
     </div>
   </section>

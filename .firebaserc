@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "toolsy-d48be": {
+      "hosting": {
+        "toolsy": [
+          "toolsy-d48be"
+        ]
+      }
+    }
+  }
+}

@@ -10,12 +10,12 @@
   </div>
   <div class="flex mt-8">
     <div class="w-4/6 mr-10 shadow rounded-lg bg-white p-6">
-      <div>
+      <div style="height: 380px;">
         <img class="w-full h-full" [src]="tool.media.snapshot[index]" alt="" />
       </div>
       <div class="flex my-5">
         <img
-          class="w-16 h-16 mr-4 shadow-xs rounded cursor-pointer"
+          class="w-16 h-16 mr-4 shadow rounded cursor-pointer"
           *ngFor="let snap of tool.media.snapshot"
           [src]="snap"
           alt=""
@@ -37,7 +37,10 @@
         </div>
       </div>
       <div class="mt-8">
-        <h4>Related</h4>
+        <h4 class="mb-4">Related</h4>
+        <div class="rounded bg-white px-6 py-3">
+          <p class="text-gray-500">Coming Soon</p>
+        </div>
       </div>
     </div>
   </div>

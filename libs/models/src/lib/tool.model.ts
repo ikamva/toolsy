@@ -4,6 +4,7 @@ export interface ITool {
     description: Description;
     tags: string[];
     web: IWeb;
+    categories: string[];
 }
 
 interface IMedia {
