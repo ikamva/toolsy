@@ -26,7 +26,8 @@
               "apps/toolsy/src/assets"
             ],
             "styles": [
-              "apps/toolsy/src/styles.scss"
+              "apps/toolsy/src/styles.scss",
+              "apps/toolsy/src/tailwind/tailwind.scss"
             ],
             "scripts": [],
             "customWebpackConfig": {
