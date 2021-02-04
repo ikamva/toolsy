@@ -58,7 +58,7 @@
       <h2
         class="text-4xl mb-10 tracking-tight text-white leading-10 font-extrabold sm:leading-none text-center"
       >
-        Find the tools &amp; services you need
+        Discover tools &amp; services
       </h2>
       <div class="w-full">
         <div class="relative w-full font">
@@ -88,7 +88,7 @@
   <section class="flex h-full">
     <div class="flex-col border-r pt-3 pl-3 pr-5 w-1/5 h-auto">
       <div class="overflow-auto h-full">
-        <div class="flex-col px-3">
+        <div *ngIf="Categories" class="flex-col px-3">
           <div class="mb-5">
             <div class="items-center py-4 text-sm font-medium text-gray-700">
               CATEGORIES
@@ -103,8 +103,8 @@
                     formControlName="category"
                   >
                     <option
-                      *ngFor="let category of categories$ | async"
-                      [value]="[category.name, category.tags]"
+                      *ngFor="let category of Categories"
+                      [value]="category.id"
                       >{{ category?.name }}</option
                     >
                   </select>
@@ -127,16 +127,17 @@
           </div>
           <div>
             <div
-              class="items-center py-4 mb-1 text-sm font-medium text-gray-700"
+              class="items-center py-4 mb-1 text-sm font-medium text-gray-900"
             >
               TAGS
             </div>
-            <div>
-              <div
-                class="py-1 px-2 inline-block rounded bg-gray-400 cursor-pointer"
+            <div class="flex items-center flex-wrap">
+              <a
+                class="text-sm px-3 h-8 flex items-center mr-2 mb-2 bg-gray-400 rounded cursor-pointer hover:bg-gray-600 hover:text-white"
+                *ngFor="let tag of getTags(category?.value)?.tags"
               >
-                {{ category.value }}
-              </div>
+                {{ tag }}
+              </a>
             </div>
           </div>
         </div>

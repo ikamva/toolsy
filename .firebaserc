@@ -1,4 +1,7 @@
 {
+  "projects": {
+    "production": "toolsy-d48be"
+  },
   "targets": {
     "toolsy-d48be": {
       "hosting": {
