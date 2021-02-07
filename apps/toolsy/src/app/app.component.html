@@ -105,8 +105,9 @@
                     <option
                       *ngFor="let category of Categories"
                       [value]="category.id"
-                      >{{ category?.name }}</option
                     >
+                      {{ category?.name }}
+                    </option>
                   </select>
                   <div
                     class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
@@ -133,7 +134,7 @@
             </div>
             <div class="flex items-center flex-wrap">
               <a
-                class="text-sm px-3 h-8 flex items-center mr-2 mb-2 bg-gray-400 rounded cursor-pointer hover:bg-gray-600 hover:text-white"
+                class="text-sm px-3 h-8 flex items-center mr-2 mb-2 bg-gray-200 rounded cursor-pointer hover:bg-gray-600 hover:text-white"
                 *ngFor="let tag of getTags(category?.value)?.tags"
               >
                 {{ tag }}
