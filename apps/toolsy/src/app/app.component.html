@@ -135,7 +135,7 @@
             <div class="flex items-center flex-wrap">
               <a
                 class="text-sm px-3 h-8 flex items-center mr-2 mb-2 bg-gray-200 rounded cursor-pointer hover:bg-gray-600 hover:text-white"
-                *ngFor="let tag of getTags(category?.value)?.tags"
+                *ngFor="let tag of getTags(category)?.tags"
               >
                 {{ tag }}
               </a>
@@ -145,18 +145,7 @@
       </div>
     </div>
     <div class="p-12 w-full flex">
-      <tly-tool-card
-        *ngFor="let tool of tools$ | async"
-        class="w-1/4"
-        [imageUrl]="tool.media.logo"
-        [description]="tool.description.line"
-        (viewHandle)="open(tpl)"
-        (click)="selected(tool)"
-      ></tly-tool-card>
+      <router-outlet></router-outlet>
     </div>
   </section>
 </div>
-
-<ng-template #tpl let-close="close">
-  <tly-tool-dialog-ui [tool]="tool"></tly-tool-dialog-ui>
-</ng-template>

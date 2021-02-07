@@ -8,10 +8,12 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { SearchResultsComponent } from './pages/search-results/search-results.component';
+import { HomeComponent } from './pages/home/home.component';
+import { AppRoutingModule } from './app-routing.module';
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, ReactiveFormsModule, ToolUiModule, ToolOverlayModule.forRoot(), AngularFireModule.initializeApp(environment.firebase), AngularFirestoreModule],
+  declarations: [AppComponent, SearchResultsComponent, HomeComponent],
+  imports: [BrowserModule, ReactiveFormsModule, AppRoutingModule, ToolUiModule, ToolOverlayModule.forRoot(), AngularFireModule.initializeApp(environment.firebase), AngularFirestoreModule],
   providers: [],
   bootstrap: [AppComponent],
 })

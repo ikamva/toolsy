@@ -1,0 +1,12 @@
+<tly-tool-card
+  *ngFor="let tool of tools$ | async"
+  class="w-1/4"
+  [imageUrl]="tool.media.logo"
+  [description]="tool.description.line"
+  (viewHandle)="open(tpl)"
+  (click)="selected(tool)"
+></tly-tool-card>
+
+<ng-template #tpl let-close="close">
+  <tly-tool-dialog-ui [tool]="tool"></tly-tool-dialog-ui>
+</ng-template>
