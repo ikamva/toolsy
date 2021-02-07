@@ -10,7 +10,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'setup',
+    path: 'search/:id',
     component: SearchResultsComponent
   },
   {

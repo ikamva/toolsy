@@ -1,6 +1,7 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ICategory, ITool } from '@toolsy/models';
 import { ToolsyOverlayService } from '@toolsy/tool-overlay';
 import { Observable } from 'rxjs';
@@ -18,8 +19,12 @@ export class HomeComponent implements OnInit {
   tools$: Observable<ITool[]>;
 
 
-  constructor(private toolsyOverlay: ToolsyOverlayService, private firestore: AngularFirestore) {
+  constructor(private toolsyOverlay: ToolsyOverlayService, private firestore: AngularFirestore, private router: Router) {
 
+  }
+
+  goToSearch(search: string) {
+    this.router.navigate(['/search', search]);
   }
 
   ngOnInit() {
