@@ -3,7 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ICategory, ITool } from '@toolsy/models';
-import { ToolsyOverlayService } from '@toolsy/tool-overlay';
+import { ToolsyOverlayRef, ToolsyOverlayService } from '@toolsy/tool-overlay';
 import { Observable } from 'rxjs';
 import { first, map } from 'rxjs/operators';
 
@@ -14,7 +14,7 @@ import { first, map } from 'rxjs/operators';
 })
 export class HomeComponent implements OnInit {
 
-
+  ref: ToolsyOverlayRef;
   tool: ITool;
   tools$: Observable<ITool[]>;
 
@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
 
 
   open(content: TemplateRef<any>) {
-    const ref = this.toolsyOverlay.open(content, null, {
+    this.ref = this.toolsyOverlay.open(content, null, {
       hasBackdrop: true,
       maxHeight: '90vh',
       minHeight: '80vh',
@@ -52,7 +52,7 @@ export class HomeComponent implements OnInit {
       positionStrategy: 'center'
     });
 
-    ref.afterClosed$.subscribe(res => { });
+    this.ref.afterClosed$.subscribe(res => { });
   }
 
   selected(tool: ITool) {

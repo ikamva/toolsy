@@ -1,19 +1,21 @@
-<div style="width: 100%; height: 100%;">
-  <ng-container [ngSwitch]="contentType">
-    <ng-container *ngSwitchCase="'string'">
-      <div class="box">
-        <div [innerHTML]="content"></div>
-      </div>
-    </ng-container>
+<overlay-scrollbars [options]="{ scrollbars: { autoHide: 'scroll' } }">
+  <div style="width: 100%; height: 100%">
+    <ng-container [ngSwitch]="contentType">
+      <ng-container *ngSwitchCase="'string'">
+        <div class="box">
+          <div [innerHTML]="content"></div>
+        </div>
+      </ng-container>
 
-    <ng-container *ngSwitchCase="'template'">
-      <ng-container
-        *ngTemplateOutlet="content; context: context"
-      ></ng-container>
-    </ng-container>
+      <ng-container *ngSwitchCase="'template'">
+        <ng-container
+          *ngTemplateOutlet="content; context: context"
+        ></ng-container>
+      </ng-container>
 
-    <ng-container *ngSwitchCase="'component'">
-      <ng-container *ngComponentOutlet="content"></ng-container>
+      <ng-container *ngSwitchCase="'component'">
+        <ng-container *ngComponentOutlet="content"></ng-container>
+      </ng-container>
     </ng-container>
-  </ng-container>
-</div>
+  </div>
+</overlay-scrollbars>

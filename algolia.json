@@ -1,0 +1,18 @@
+{
+  "objectID": "z3RbpsEJhViL9hqxcyLT",
+  "categories": ["design", "web development"],
+  "description": {
+    "full": "Blobmaker is a free generative design tool made with 💕 by z creative labs, to help you quickly create random, unique, and organic-looking SVG shapes.",
+    "line": "Make organic SVG shapes for your next design"
+  },
+  "tags": ["blog", "design", "svg"],
+  "name": "Blob Maker",
+  "media": {
+      "log": "https://firebasestorage.googleapis.com/v0/b/toolsy-d48be.appspot.com/o/tools%2Flogos%2Fblobmaker.png?alt=media&token=b3152196-c7ca-40b9-b717-301188cdf899",
+      "snapshot": ["https://firebasestorage.googleapis.com/v0/b/toolsy-d48be.appspot.com/o/tools%2Fsnapshots%2FScreenshot_2020-09-23%20Blobmaker%20-%20Make%20organic%20SVG%20shapes%20for%20your%20next%20design.png?alt=media&token=e033eaeb-a56a-48f0-a686-218bcfad14aa"]
+  },
+  "web": {
+      "url": "https://www.blobmaker.app",
+      "website_name": "www.blobmaker.app"
+  }
+}

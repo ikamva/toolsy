@@ -2,8 +2,13 @@ import { AfterViewInit, Component, OnInit, TemplateRef, ViewChild } from '@angul
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { ITool } from '@toolsy/models';
-import { ToolsyOverlayService } from '@toolsy/tool-overlay';
+import { ToolsyOverlayRef, ToolsyOverlayService } from '@toolsy/tool-overlay';
 import { Observable } from 'rxjs';
+import algolia from 'algoliasearch/lite';
+import { environment } from '../../../environments/environment';
+import { OverlayScrollbarsComponent } from "overlayscrollbars-ngx";
+
+const client = algolia(environment.algolia.appID, environment.algolia.apiKey);
 
 @Component({
   selector: 'toolsy-search-results',
@@ -13,46 +18,50 @@ import { Observable } from 'rxjs';
 export class SearchResultsComponent implements OnInit {
   search: string;
   tool: ITool;
-  tools$: Observable<ITool[]>;
-
+  query: string;
+  hits: ITool[];
+  results: any;
+  index = client.initIndex('tools');
+  ref: ToolsyOverlayRef;
 
   constructor(private activatedRoute: ActivatedRoute, private toolsyOverlay: ToolsyOverlayService, private firestore: AngularFirestore) {
     this.search = this.activatedRoute.snapshot.params.id;
   }
 
   ngOnInit() {
-
+    this.handleSearch(this.search)
   }
 
-  searchTool() {
-    // this.tools$ = this.firestore.collection<ITool>('tools', ref => ref.where()).valueChanges();
-  }
 
   open(content: TemplateRef<any>) {
-    const ref = this.toolsyOverlay.open(content, null, {
+    this.ref = this.toolsyOverlay.open(content, null, {
       hasBackdrop: true,
-      maxHeight: '90vh',
-      minHeight: '80vh',
-      minWidth: '90vw',
-      maxWidth: '90vw',
+      height: '100%',
+      width: '100vh',
+      minHeight: '100vh',
+      minWidth: '100vw',
+      maxWidth: '100vw',
       panelClass: [
-        'bg-dialog',
-        'shadow-md',
-        'rounded-md',
-        'animated',
-        'slideInRight',
-        'faster',
-        'overflow-y-auto'
+
       ],
       backdropClass: 'bg-backdrop',
       positionStrategy: 'center'
     });
 
-    ref.afterClosed$.subscribe(res => { });
+    this.ref.afterClosed$.subscribe(res => { });
+
   }
 
   selected(tool: ITool) {
     this.tool = tool;
+  }
+
+  async handleSearch(query: string) {
+    console.log(query)
+    this.query = query;
+    this.results = await this.index.search(query);
+
+    this.hits = this.results.hits as ITool[];
   }
 
 }

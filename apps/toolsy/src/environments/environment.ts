@@ -13,6 +13,10 @@ export const environment = {
     messagingSenderId: "1084532886347",
     appId: "1:1084532886347:web:f5d1ecf7a12224fac9f6ce",
     measurementId: "G-GK8HQPHXWZ"
+  },
+  algolia: {
+    apiKey: "785fbd748dd270087e5bc9b915ca3cad",
+    appID: "QN03XAFM63"
   }
 };
 

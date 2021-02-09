@@ -1,0 +1,14 @@
+<div
+  class="relative min-h-screen h-full w-screen flex justify-center overflow-x-hidden overflow-y-auto"
+>
+  <div
+    class="h-screen w-full fixed top-0 bottom-0 bg-transparent"
+    (click)="onClose()"
+  ></div>
+  <div
+    class="bg-dialog absolute shadow-md rounded-md animated slideInRight my-16 faster z-30"
+    style="max-width: 90vw; min-width: 90vw; width: 90vw"
+  >
+    <ng-content></ng-content>
+  </div>
+</div>

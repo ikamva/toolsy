@@ -12,6 +12,7 @@
       [(ngModel)]="search"
       placeholder="Search for a tool or service"
       class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-2 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+      (keyup.enter)="handleSearch(search)"
     />
     <div class="absolute right-0 bottom-0 top-0 flex items-center mr-3">
       <svg
@@ -31,22 +32,33 @@
   </div>
 </nav>
 <section class="flex h-full mt-16">
-  <div class="flex-col border-r pt-3 pl-3 pr-5 w-1/5 h-auto">
-    <div class="overflow-auto h-full">
+  <div
+    class="flex-col fixed overflow-y-auto h-screen border-r pt-3 pl-3 pr-5 w-64"
+  >
+    <div class="h-full overflow-y-auto pb-6">
       <toolsy-categories></toolsy-categories>
     </div>
   </div>
-  <div class="p-12 w-full flex">
-    <tly-tool-card
-      *ngFor="let tool of tools$ | async"
-      class="w-1/4"
-      [imageUrl]="tool.media.logo"
-      [description]="tool.description.line"
-      (viewHandle)="open(tpl)"
-      (click)="selected(tool)"
-    ></tly-tool-card>
+  <div class="p-12 ml-64 w-full flex">
+    <ng-container *ngIf="hits; else nohits">
+      <tly-tool-card
+        *ngFor="let tool of hits"
+        class="w-1/4"
+        [imageUrl]="tool.media.logo"
+        [description]="tool.description.line"
+        (viewHandle)="open(tpl)"
+        (click)="selected(tool)"
+      ></tly-tool-card>
+    </ng-container>
+    <ng-template #nohits>
+      <div class="h-20 text-gray-800">
+        <p>No results for "{{ search }}"</p>
+      </div>
+    </ng-template>
   </div>
 </section>
 <ng-template #tpl let-close="close">
-  <tly-tool-dialog-ui [tool]="tool"></tly-tool-dialog-ui>
+  <toolsy-tool-dialog (close)="ref.close()">
+    <tly-tool-dialog-ui [tool]="tool"></tly-tool-dialog-ui>
+  </toolsy-tool-dialog>
 </ng-template>

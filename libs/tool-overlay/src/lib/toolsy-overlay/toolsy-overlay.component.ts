@@ -1,6 +1,6 @@
 import { Component, OnInit, TemplateRef, Type } from '@angular/core';
 import { ToolsyOverlayRef } from '../toolsy-overlay-ref';
-
+import { OverlayScrollbarsComponent } from "overlayscrollbars-ngx";
 @Component({
   selector: 'tly-overlay',
   templateUrl: './toolsy-overlay.component.html',

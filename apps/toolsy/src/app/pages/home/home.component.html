@@ -1,3 +1,4 @@
+<div #spacer></div>
 <nav class="fixed top-0 p-6 w-full">
   <div>
     <toolsy-logo></toolsy-logo>
@@ -43,8 +44,8 @@
     </div>
   </div>
 </div>
-<section class="flex h-full">
-  <div class="flex-col border-r pt-3 pl-3 pr-5 w-1/5 h-auto">
+<section stickyThing [spacer]="spacer" marginTop="64" class="flex h-full">
+  <div class="flex-col overflow-y-auto h-screen border-r pt-3 pl-3 pr-5 w-64">
     <div class="overflow-auto h-full">
       <toolsy-categories></toolsy-categories>
     </div>
@@ -53,13 +54,16 @@
     <tly-tool-card
       *ngFor="let tool of tools$ | async"
       class="w-1/4"
-      [imageUrl]="tool.media.logo"
-      [description]="tool.description.line"
+      [imageUrl]="tool?.media?.logo"
+      [title]="tool?.name"
+      [description]="tool?.description?.line"
       (viewHandle)="open(tpl)"
       (click)="selected(tool)"
     ></tly-tool-card>
   </div>
 </section>
 <ng-template #tpl let-close="close">
-  <tly-tool-dialog-ui [tool]="tool"></tly-tool-dialog-ui>
+  <toolsy-tool-dialog (close)="ref.close()">
+    <tly-tool-dialog-ui [tool]="tool"></tly-tool-dialog-ui>
+  </toolsy-tool-dialog>
 </ng-template>

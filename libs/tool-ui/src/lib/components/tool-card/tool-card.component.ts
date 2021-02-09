@@ -7,6 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class ToolCardComponent implements OnInit {
 
+  @Input() title: string;
   @Input() imageUrl: string;
   @Input() description: string;
   @Input() link: string;
