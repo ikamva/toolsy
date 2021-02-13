@@ -15,10 +15,10 @@ import { CategoriesComponent } from './components/categories/categories.componen
 import { LogoComponent } from './components/logo/logo.component';
 import { ToolDialogComponent } from './components/tool-dialog/tool-dialog.component';
 import { OverlayscrollbarsModule } from "overlayscrollbars-ngx";
-import { AngularStickyThingsModule } from '@w11k/angular-sticky-things';
+import { IntersectionObserverModule } from '@ng-web-apis/intersection-observer';
 @NgModule({
   declarations: [AppComponent, SearchResultsComponent, HomeComponent, CategoriesComponent, LogoComponent, ToolDialogComponent],
-  imports: [BrowserModule, ReactiveFormsModule, FormsModule, AppRoutingModule, ToolUiModule, AngularStickyThingsModule, ToolOverlayModule.forRoot(), AngularFireModule.initializeApp(environment.firebase), AngularFirestoreModule, OverlayscrollbarsModule],
+  imports: [BrowserModule, ReactiveFormsModule, FormsModule, AppRoutingModule, IntersectionObserverModule, ToolUiModule, ToolOverlayModule.forRoot(), AngularFireModule.initializeApp(environment.firebase), AngularFirestoreModule, OverlayscrollbarsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -2232,6 +2232,21 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
+"@ng-web-apis/common@^1.9.0":
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/@ng-web-apis/common/-/common-1.9.0.tgz#6e93aa346ee40b79cc073c4bf159e95f625c07d4"
+  integrity sha512-Q0ZRhCEuiOwCfZv88B1xudVuSPdr3ujMcuc/JON9X/7Fu245yDRNJZD0p+uHiHfjkG+/6H2VpIY/K4ziJiQ6yg==
+  dependencies:
+    network-information-types "^0.1.0"
+    tslib "^1.9.0"
+
+"@ng-web-apis/intersection-observer@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@ng-web-apis/intersection-observer/-/intersection-observer-2.1.0.tgz#cc90c8c60a5a7e804efb27216cb3d0cca4dabc39"
+  integrity sha512-ReLiSUsq+1y4Se0q7i/8N5/mA40r4/COJUj/fXS7mA8OLg6AMFmuHsh/gDladBsGRwjuN51VAehzcrVOHWWvnA==
+  dependencies:
+    tslib "^1.9.0"
+
 "@ngtools/webpack@11.1.2":
   version "11.1.2"
   resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-11.1.2.tgz#037ea10b4b1e93a309ff43bf6a170f20bf63d075"
@@ -3323,13 +3338,6 @@
   integrity sha512-kQ5JNTrbDv3Rp5X2n/iUu37IJBDU2gsZ5R/g1/KHOOEc5IKfUFjXT6DENPGduh08I/pamwtEq4oul7gUqKTQDQ==
   dependencies:
     "@types/yargs-parser" "*"
-
-"@w11k/angular-sticky-things@^1.3.1":
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/@w11k/angular-sticky-things/-/angular-sticky-things-1.3.1.tgz#8316c22ac691b07c4d9292c2d2a8d327038d2700"
-  integrity sha512-rOIyaX3oEKQwPj/zxL1FQrvRzAjE1Ad1aFN5wg+ovnP6nDURjgIU5fPGnZLiTQAXQdoSZjAIoqN2HJrBgJ2ySw==
-  dependencies:
-    tslib "^2.0.0"
 
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
@@ -11530,6 +11538,11 @@ nested-error-stacks@^2.0.0, nested-error-stacks@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/nested-error-stacks/-/nested-error-stacks-2.1.0.tgz#0fbdcf3e13fe4994781280524f8b96b0cdff9c61"
   integrity sha512-AO81vsIO1k1sM4Zrd6Hu7regmJN1NSiAja10gc4bX3F0wd+9rQmcuHQaHVQCYIEC8iFXnE+mavh23GOt7wBgug==
+
+network-information-types@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/network-information-types/-/network-information-types-0.1.0.tgz#5c880bebc2a9e6b25eb00ed23854d13ff3a7fe3a"
+  integrity sha512-cRUCYZoRHTMjYcgk5MbwqM0h0Za34panRxAJKY8n+mQ+NLMuRIw7aKzmaZqkC/cte7bnRcdfTwFA27GgN62EtQ==
 
 next-tick@1, next-tick@^1.1.0:
   version "1.1.0"
