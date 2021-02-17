@@ -1,11 +1,14 @@
 <div waIntersectionObserver>
-  <nav class="fixed top-0 p-6 w-full z-50" [ngClass]="{'nav': scrolledUp, 'bg-blue-700': scrolledUp}">
+  <nav
+    class="fixed top-0 p-6 w-full z-50"
+    [ngClass]="{ nav: scrolledUp, 'bg-blue-700': scrolledUp }"
+  >
     <div>
       <toolsy-logo></toolsy-logo>
     </div>
   </nav>
   <div
-  [ngClass]="{'nav': !scrolledUp, 'bg-blue-700': !scrolledUp}"
+    [ngClass]="{ nav: !scrolledUp, 'bg-blue-700': !scrolledUp }"
     class="flex justify-center items-center"
     [ngStyle]="{ height: '410px' }"
   >
@@ -17,7 +20,8 @@
       </h2>
       <div class="w-full">
         <div class="relative w-full font">
-          <input (waIntersectionObservee)="onIntersection($event)"
+          <input
+            (waIntersectionObservee)="onIntersection($event)"
             placeholder="Search for a tool or service"
             #search
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-5 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -42,113 +46,55 @@
       </div>
     </div>
   </div>
-  
+
   <div class="flex h-full">
-    <div class="flex-col overflow-y-auto h-screen border-r pt-3 pl-3 pr-5 w-64" [ngClass]="{'h-full': scrolledUp, 'fixed': scrolledUp, 'top-16': scrolledUp}">
+    <div
+      class="flex-col overflow-y-auto h-screen border-r pt-3 pl-3 pr-5 w-64"
+      [ngClass]="{
+        'h-full': scrolledUp,
+        fixed: scrolledUp,
+        'top-16': scrolledUp
+      }"
+    >
       <div class="overflow-y-auto h-full">
         <toolsy-categories></toolsy-categories>
       </div>
     </div>
-    <div class="p-12 w-full flex flex-wrap flex-row" [ngClass]="{'ml-64': scrolledUp}">
-      <tly-tool-card
-        *ngFor="let tool of tools$ | async"
-        class="w-1/4"
-        [imageUrl]="tool?.media?.logo"
-        [title]="tool?.name"
-        [description]="tool?.description?.line"
-        (viewHandle)="open(tpl)"
-        (click)="selected(tool)"
-      ></tly-tool-card>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, illo
-        placeat natus, ullam explicabo eius dolorem quasi necessitatibus
-        inventore vitae fugiat velit perferendis veritatis quo minima,
-        consectetur accusamus voluptate? Inventore.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, illo
-        placeat natus, ullam explicabo eius dolorem quasi necessitatibus
-        inventore vitae fugiat velit perferendis veritatis quo minima,
-        consectetur accusamus voluptate? Inventore.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, illo
-        placeat natus, ullam explicabo eius dolorem quasi necessitatibus
-        inventore vitae fugiat velit perferendis veritatis quo minima,
-        consectetur accusamus voluptate? Inventore.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, illo
-        placeat natus, ullam explicabo eius dolorem quasi necessitatibus
-        inventore vitae fugiat velit perferendis veritatis quo minima,
-        consectetur accusamus voluptate? Inventore.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, illo
-        placeat natus, ullam explicabo eius dolorem quasi necessitatibus
-        inventore vitae fugiat velit perferendis veritatis quo minima,
-        consectetur accusamus voluptate? Inventore.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, illo
-        placeat natus, ullam explicabo eius dolorem quasi necessitatibus
-        inventore vitae fugiat velit perferendis veritatis quo minima,
-        consectetur accusamus voluptate? Inventore.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, illo
-        placeat natus, ullam explicabo eius dolorem quasi necessitatibus
-        inventore vitae fugiat velit perferendis veritatis quo minima,
-        consectetur accusamus voluptate? Inventore.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, illo
-        placeat natus, ullam explicabo eius dolorem quasi necessitatibus
-        inventore vitae fugiat velit perferendis veritatis quo minima,
-        consectetur accusamus voluptate? Inventore.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, illo
-        placeat natus, ullam explicabo eius dolorem quasi necessitatibus
-        inventore vitae fugiat velit perferendis veritatis quo minima,
-        consectetur accusamus voluptate? Inventore.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, illo
-        placeat natus, ullam explicabo eius dolorem quasi necessitatibus
-        inventore vitae fugiat velit perferendis veritatis quo minima,
-        consectetur accusamus voluptate? Inventore.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, illo
-        placeat natus, ullam explicabo eius dolorem quasi necessitatibus
-        inventore vitae fugiat velit perferendis veritatis quo minima,
-        consectetur accusamus voluptate? Inventore.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, illo
-        placeat natus, ullam explicabo eius dolorem quasi necessitatibus
-        inventore vitae fugiat velit perferendis veritatis quo minima,
-        consectetur accusamus voluptate? Inventore.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, illo
-        placeat natus, ullam explicabo eius dolorem quasi necessitatibus
-        inventore vitae fugiat velit perferendis veritatis quo minima,
-        consectetur accusamus voluptate? Inventore.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, illo
-        placeat natus, ullam explicabo eius dolorem quasi necessitatibus
-        inventore vitae fugiat velit perferendis veritatis quo minima,
-        consectetur accusamus voluptate? Inventore.
-      </p>
+    <div
+      class="p-12 w-full flex flex-wrap flex-row"
+      [ngClass]="{ 'ml-64': scrolledUp }"
+    >
+      <ng-container *ngIf="tools$ | async as tool; else loadingTools">
+        <tly-tool-card
+          *ngFor="let tool of tools$ | async"
+          class="w-1/4"
+          [imageUrl]="tool?.media?.logo"
+          [title]="tool?.name"
+          [description]="tool?.description?.line"
+          (viewHandle)="open(tpl)"
+          (click)="selected(tool)"
+        ></tly-tool-card>
+      </ng-container>
+      <ng-template #loadingTools>
+        <content-loader
+          class="w-1/4"
+          viewBox="0 0 260 282"
+          speed="2"
+          backgroundColor="#f3f3f3"
+          foregroundColor="#ecebeb"
+        >
+          <svg:rect x="82" y="161" rx="2" ry="2" width="110" height="9" />
+          <svg:rect x="77" y="231" rx="2" ry="2" width="119" height="21" />
+          <svg:circle cx="135" cy="74" r="60" />
+          <svg:rect x="27" y="182" rx="2" ry="2" width="221" height="9" />
+        </content-loader>
+      </ng-template>
     </div>
   </div>
 </div>
 
 <ng-template #tpl let-close="close">
-  <toolsy-tool-dialog  (close)="ref.close()">
-    <tly-tool-dialog-ui  [tool]="tool"></tly-tool-dialog-ui>
+  <toolsy-tool-dialog (close)="ref.close()">
+    <tly-tool-dialog-ui [tool]="tool"></tly-tool-dialog-ui>
   </toolsy-tool-dialog>
 </ng-template>

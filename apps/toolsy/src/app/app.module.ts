@@ -16,9 +16,11 @@ import { LogoComponent } from './components/logo/logo.component';
 import { ToolDialogComponent } from './components/tool-dialog/tool-dialog.component';
 import { OverlayscrollbarsModule } from "overlayscrollbars-ngx";
 import { IntersectionObserverModule } from '@ng-web-apis/intersection-observer';
+import { ContentLoaderModule } from '@ngneat/content-loader';
+
 @NgModule({
   declarations: [AppComponent, SearchResultsComponent, HomeComponent, CategoriesComponent, LogoComponent, ToolDialogComponent],
-  imports: [BrowserModule, ReactiveFormsModule, FormsModule, AppRoutingModule, IntersectionObserverModule, ToolUiModule, ToolOverlayModule.forRoot(), AngularFireModule.initializeApp(environment.firebase), AngularFirestoreModule, OverlayscrollbarsModule],
+  imports: [BrowserModule, ReactiveFormsModule, FormsModule, AppRoutingModule, IntersectionObserverModule, ToolUiModule, ToolOverlayModule.forRoot(), AngularFireModule.initializeApp(environment.firebase), AngularFirestoreModule, OverlayscrollbarsModule, ContentLoaderModule],
   providers: [],
   bootstrap: [AppComponent],
 })

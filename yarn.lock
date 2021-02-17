@@ -2247,6 +2247,13 @@
   dependencies:
     tslib "^1.9.0"
 
+"@ngneat/content-loader@^6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@ngneat/content-loader/-/content-loader-6.0.0.tgz#15a2eb62ac9b984b1a2717149f36e7c8e4cc1e9a"
+  integrity sha512-80GyUdxT+d3StF26Y2GkX57YSO4puijK7tJ+PtTa+x5t8jxSxMJbYhcnPl64ChLsCxssa/GTTwAkKsC6c/v+3g==
+  dependencies:
+    tslib "^2.0.0"
+
 "@ngtools/webpack@11.1.2":
   version "11.1.2"
   resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-11.1.2.tgz#037ea10b4b1e93a309ff43bf6a170f20bf63d075"

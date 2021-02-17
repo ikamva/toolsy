@@ -57,7 +57,7 @@ export class SearchResultsComponent implements OnInit {
   }
 
   async handleSearch(query: string) {
-    console.log(query)
+    this.hits = undefined;
     this.query = query;
     this.results = await this.index.search(query);
 

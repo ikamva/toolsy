@@ -3,5 +3,7 @@
         "blobmaker",
         "firestore",
         "toolsy"
-    ]
+    ],
+    "editor.fontFamily": "'Fira Code'",
+    "editor.fontLigatures": true
 }

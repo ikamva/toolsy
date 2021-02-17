@@ -40,20 +40,36 @@
     </div>
   </div>
   <div class="p-12 ml-64 w-full flex">
-    <ng-container *ngIf="hits; else nohits">
-      <tly-tool-card
-        *ngFor="let tool of hits"
-        class="w-1/4"
-        [imageUrl]="tool.media.logo"
-        [description]="tool.description.line"
-        (viewHandle)="open(tpl)"
-        (click)="selected(tool)"
-      ></tly-tool-card>
+    <ng-container *ngIf="hits; else loadingTools">
+      <ng-container *ngIf="hits.length > 0; else nohits">
+        <tly-tool-card
+          *ngFor="let tool of hits"
+          class="w-1/4"
+          [imageUrl]="tool.media.logo"
+          [description]="tool.description.line"
+          (viewHandle)="open(tpl)"
+          (click)="selected(tool)"
+        ></tly-tool-card>
+      </ng-container>
+      <ng-template #nohits>
+        <div class="h-20 text-gray-800">
+          <p>No results for "{{ search }}"</p>
+        </div>
+      </ng-template>
     </ng-container>
-    <ng-template #nohits>
-      <div class="h-20 text-gray-800">
-        <p>No results for "{{ search }}"</p>
-      </div>
+    <ng-template #loadingTools>
+      <content-loader
+        class="w-1/4"
+        viewBox="0 0 260 282"
+        speed="2"
+        backgroundColor="#f3f3f3"
+        foregroundColor="#ecebeb"
+      >
+        <svg:rect x="82" y="161" rx="2" ry="2" width="110" height="9" />
+        <svg:rect x="77" y="231" rx="2" ry="2" width="119" height="21" />
+        <svg:circle cx="135" cy="74" r="60" />
+        <svg:rect x="27" y="182" rx="2" ry="2" width="221" height="9" />
+      </content-loader>
     </ng-template>
   </div>
 </section>

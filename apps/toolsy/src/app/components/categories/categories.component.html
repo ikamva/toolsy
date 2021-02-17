@@ -1,10 +1,14 @@
-<div *ngIf="Categories" class="flex-col px-3">
+<div class="flex-col px-3">
   <div class="mb-5">
     <div class="items-center py-4 text-sm font-medium text-gray-700">
       CATEGORIES
     </div>
 
-    <form [formGroup]="categoryForm" class="w-full max-w-lg">
+    <form
+      *ngIf="Categories; else loadCategories"
+      [formGroup]="categoryForm"
+      class="w-full max-w-lg"
+    >
       <div class="w-full">
         <div class="relative">
           <select
@@ -32,12 +36,26 @@
         </div>
       </div>
     </form>
+    <ng-template #loadCategories>
+      <content-loader
+        viewBox="0 0 160 46"
+        speed="2"
+        backgroundColor="#f3f3f3"
+        foregroundColor="#ecebeb"
+      >
+        <svg:rect x="0" y="88" rx="3" ry="3" width="178" height="6" />
+        <svg:rect x="1" y="1" rx="0" ry="0" width="157" height="42" />
+      </content-loader>
+    </ng-template>
   </div>
   <div>
     <div class="items-center py-4 mb-1 text-sm font-medium text-gray-900">
       TAGS
     </div>
-    <div class="flex items-center flex-wrap">
+    <div
+      *ngIf="Categories; else loadingTags"
+      class="flex items-center flex-wrap"
+    >
       <a
         class="text-sm px-3 h-8 flex items-center mr-2 mb-2 bg-gray-200 rounded cursor-pointer hover:bg-gray-600 hover:text-white"
         *ngFor="let tag of getTags(category)?.tags"
@@ -45,5 +63,20 @@
         {{ tag }}
       </a>
     </div>
+    <ng-template #loadingTags>
+      <content-loader
+        viewBox="0 0 160 84"
+        speed="2"
+        backgroundColor="#f3f3f3"
+        foregroundColor="#ecebeb"
+      >
+        <svg:rect x="0" y="0" rx="3" ry="3" width="67" height="11" />
+        <svg:rect x="76" y="0" rx="3" ry="3" width="140" height="11" />
+        <svg:rect x="51" y="46" rx="3" ry="3" width="53" height="11" />
+        <svg:rect x="119" y="25" rx="3" ry="3" width="72" height="11" />
+        <svg:rect x="2" y="25" rx="3" ry="3" width="100" height="11" />
+        <svg:rect x="1" y="46" rx="3" ry="3" width="37" height="11" />
+      </content-loader>
+    </ng-template>
   </div>
 </div>
