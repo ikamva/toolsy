@@ -36,7 +36,9 @@
     class="flex-col fixed overflow-y-auto h-screen border-r pt-3 pl-3 pr-5 w-64"
   >
     <div class="h-full overflow-y-auto pb-6">
-      <toolsy-categories></toolsy-categories>
+      <toolsy-categories
+        (handleCategory)="onCategory($event)"
+      ></toolsy-categories>
     </div>
   </div>
   <div class="tools-grid">

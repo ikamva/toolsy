@@ -15,6 +15,7 @@
             class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             id="grid-state"
             formControlName="category"
+            (change)="categorySelected(category)"
           >
             <option *ngFor="let category of Categories" [value]="category.id">
               {{ category?.name }}

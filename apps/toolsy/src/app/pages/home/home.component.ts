@@ -4,36 +4,21 @@ import { Router } from '@angular/router';
 import { ITool } from '@toolsy/models';
 import { ToolsyOverlayRef, ToolsyOverlayService } from '@toolsy/tool-overlay';
 import { Observable } from 'rxjs';
-import { IntersectionObserverService, INTERSECTION_ROOT_MARGIN, INTERSECTION_THRESHOLD } from '@ng-web-apis/intersection-observer';
+import { filter, first } from 'rxjs/operators';
 @Component({
   selector: 'toolsy-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
-  providers: [
-    IntersectionObserverService,
-    {
-      provide: INTERSECTION_THRESHOLD,
-      useValue: 0.1,
-    },
-    {
-      provide: INTERSECTION_ROOT_MARGIN,
-      useValue: '400px',
-    },
-  ],
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
   scrolledUp = false;
   ref: ToolsyOverlayRef;
   tool: ITool;
-  tools$: Observable<ITool[]>;
+  tools: ITool[];
+  toolsTemp: ITool[];
   toolsLoading = new Array<number>(12);
 
-  constructor(private toolsyOverlay: ToolsyOverlayService, private firestore: AngularFirestore, private router: Router, @Inject(IntersectionObserverService) entries$: IntersectionObserverService,) {
-    entries$.subscribe(entries => {
-      // Don't forget to unsubscribe
-      console.log(entries);
-    });
-
+  constructor(private toolsyOverlay: ToolsyOverlayService, private firestore: AngularFirestore, private router: Router) {
 
   }
 
@@ -42,9 +27,18 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.tools$ = this.firestore.collection<ITool>('tools').valueChanges();
+    this.getCategories()
   }
 
+  onCategory(name: string) {
+    this.tools = this.toolsTemp.filter(tool => {
+      return tool.categories.findIndex(category => category === name) > -1
+    })
+  }
+
+  async getCategories() {
+    this.tools = this.toolsTemp = await this.firestore.collection<ITool>('tools').valueChanges().pipe(first()).toPromise();
+  }
 
   open(content: TemplateRef<any>) {
     this.ref = this.toolsyOverlay.open(content, null, {
@@ -65,11 +59,6 @@ export class HomeComponent implements OnInit {
 
   selected(tool: ITool) {
     this.tool = tool;
-  }
-
-  onIntersection(intersections: IntersectionObserverEntry[]) {
-    this.scrolledUp = !intersections[0].isIntersecting && intersections[0].boundingClientRect.y < -60;
-    console.log(intersections[0])
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -12,6 +12,8 @@ import { map, first } from 'rxjs/operators';
   styleUrls: ['./categories.component.scss']
 })
 export class CategoriesComponent implements OnInit {
+  @Output() handleCategory = new EventEmitter<string>()
+  @Output() handleTags = new EventEmitter<string[]>()
   categories$: Observable<ICategory[]>;
   categoryForm: FormGroup;
   Categories: ICategory[];
@@ -48,7 +50,7 @@ export class CategoriesComponent implements OnInit {
     return this.Categories.find(category => category.id === id)
   }
 
-  categorySelected(category: ICategory) {
-    console.log(category)
+  categorySelected(id: string) {
+    this.handleCategory.emit(this.Categories.find(category => category.id === id).name.toLowerCase())
   }
 }

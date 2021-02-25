@@ -25,7 +25,7 @@ export class SearchResultsComponent implements OnInit {
   index = client.initIndex('tools');
   ref: ToolsyOverlayRef;
   tags: string[] = [];
-  categories: string[] = [];
+  category: string;
   toolsLoading = new Array<number>(12);
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private toolsyOverlay: ToolsyOverlayService, private firestore: AngularFirestore) {
@@ -34,6 +34,11 @@ export class SearchResultsComponent implements OnInit {
 
   ngOnInit() {
     this.handleSearch(this.search)
+  }
+
+  onCategory(category: string) {
+    this.category = category;
+    this.hits = this.toggleTags(category, this.tags);
   }
 
 
@@ -73,20 +78,16 @@ export class SearchResultsComponent implements OnInit {
 
     console.log(this.tags.length)
     // filter tools by tags
-    this.hits = this.categories.length > 0 ? this.toggleTags(this.categories, this.tags) : this.toolsTemp;
-
+    this.hits = this.category ? this.toggleTags(this.category, this.tags) : this.toolsTemp;
   }
 
-  toggleTags(categories: string[], tags: string[]) {
+  toggleTags(category: string, tags: string[]) {
     const tools = this.toolsTemp.filter(tool => {
-
-
-      return tool.categories.filter(category =>
-        categories.indexOf(category) > -1
-      ).length > 0 &&
-        tool.tags.filter(tag =>
-          tags.indexOf(tag) > -1
-        ).length > 0
+      return tool.categories.indexOf(category) > -1;
+      // &&
+      //   tool.tags.filter(tag =>
+      //     tags.indexOf(tag) > -1
+      //   ).length > 0
     }
     )
 

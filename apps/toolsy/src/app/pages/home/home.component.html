@@ -37,13 +37,15 @@
     class="flex-col fixed overflow-y-auto h-screen border-r pt-3 pl-3 pr-5 w-64"
   >
     <div class="h-full overflow-y-auto pb-6">
-      <toolsy-categories></toolsy-categories>
+      <toolsy-categories
+        (handleCategory)="onCategory($event)"
+      ></toolsy-categories>
     </div>
   </div>
   <div class="tools-grid">
-    <ng-container *ngIf="tools$ | async as tool; else loadingTools">
+    <ng-container *ngIf="tools; else loadingTools">
       <tly-tool-card
-        *ngFor="let tool of tools$ | async"
+        *ngFor="let tool of tools"
         [imageUrl]="tool?.media?.logo"
         [title]="tool?.name"
         [description]="tool?.description?.line"

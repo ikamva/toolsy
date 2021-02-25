@@ -3506,6 +3506,13 @@
   resolved "https://registry.yarnpkg.com/@yarnpkg/lockfile/-/lockfile-1.1.0.tgz#e77a97fbd345b76d83245edcd17d393b1b41fb31"
   integrity sha512-GpSwvyXOcOOlV70vbnzjj4fW5xW/FdUF6nQEt1ENy7m4ZCczi1+/buVUPAqmGfqznsORNFzUMjctTIp8a9tuCQ==
 
+"@yellowspot/ng-truncate@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@yellowspot/ng-truncate/-/ng-truncate-2.0.0.tgz#e210fa537975ed454227b65befaa7866e7ef6f73"
+  integrity sha512-OzUPzcBLgC30gD1sqCgzOGDmZXlviJ51mr3C4HAEF70m9mSzFeCeiGpcJ8f7/SXSWkaMPs+Ar4xcFF4ZKtbFrA==
+  dependencies:
+    tslib "^2.0.0"
+
 JSONStream@^1.2.1:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/JSONStream/-/JSONStream-1.3.5.tgz#3208c1f08d3a4d99261ab64f92302bc15e111ca0"
