@@ -2,11 +2,11 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-// .tag {
-//   @apply bg-secondary;
-//   @apply rounded;
-//   @apply text-center;
-//   @apply font-thin;
-//   font-size: 0.65rem;
-//   padding: 0.2em 0.5em 0.3em;
-// }
+@layer components {
+  .tools-grid {
+    @apply p-12 w-full grid grid-cols-4 gap-4 ml-64;
+  }
+  .tool-card {
+    @apply shadow p-6 text-center rounded-lg;
+  }
+}

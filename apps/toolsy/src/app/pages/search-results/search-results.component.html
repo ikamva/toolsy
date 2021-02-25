@@ -39,12 +39,11 @@
       <toolsy-categories></toolsy-categories>
     </div>
   </div>
-  <div class="p-12 ml-64 w-full flex">
+  <div class="tools-grid">
     <ng-container *ngIf="hits; else loadingTools">
       <ng-container *ngIf="hits.length > 0; else nohits">
         <tly-tool-card
           *ngFor="let tool of hits"
-          class="w-1/4"
           [imageUrl]="tool.media.logo"
           [description]="tool.description.line"
           (viewHandle)="open(tpl)"
@@ -59,7 +58,8 @@
     </ng-container>
     <ng-template #loadingTools>
       <content-loader
-        class="w-1/4"
+        class="tool-card"
+        *ngFor="let i of toolsLoading"
         viewBox="0 0 260 282"
         speed="2"
         backgroundColor="#f3f3f3"

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { ToolUiModule } from '@toolsy/tool-ui';
 import { ToolOverlayModule } from '@toolsy/tool-overlay';
@@ -18,9 +18,10 @@ import { OverlayscrollbarsModule } from "overlayscrollbars-ngx";
 import { IntersectionObserverModule } from '@ng-web-apis/intersection-observer';
 import { ContentLoaderModule } from '@ngneat/content-loader';
 
+
 @NgModule({
   declarations: [AppComponent, SearchResultsComponent, HomeComponent, CategoriesComponent, LogoComponent, ToolDialogComponent],
-  imports: [BrowserModule, ReactiveFormsModule, FormsModule, AppRoutingModule, IntersectionObserverModule, ToolUiModule, ToolOverlayModule.forRoot(), AngularFireModule.initializeApp(environment.firebase), AngularFirestoreModule, OverlayscrollbarsModule, ContentLoaderModule],
+  imports: [CommonModule, BrowserModule, ReactiveFormsModule, FormsModule, AppRoutingModule, IntersectionObserverModule, ToolUiModule, ToolOverlayModule.forRoot(), AngularFireModule.initializeApp(environment.firebase), AngularFirestoreModule, OverlayscrollbarsModule, ContentLoaderModule],
   providers: [],
   bootstrap: [AppComponent],
 })
